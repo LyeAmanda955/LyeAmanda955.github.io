@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+        var timestable = function(numberToUse, start, end) {
+// inside the paranthesis you have start, end and then the increments (variables)
+
+            for (var i = start; i <= end; i++) {
+              // write the times table line
+                document.write(numberToUse + " * " + i + " = " + numberToUse * i + "<br>")
+            }
+        }
+
+// do 5 times table, starting at 5 until 10
+        timestable(5, 5, 10);
+// do the 6 times table starting at 7 ending at 11
+        timestable(6, 7, 11);
+    </script>
+</body>
+
+</html>

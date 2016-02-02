@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <script>
+  // found nunmeric test function on web
+        function isNumber(o) {
+            return !isNaN(o - 0) && o !== null && o !== "" && o !== false;
+        }
+
+// times table function , takes number,start ,end
+        var timestable = function(numberToUse, start, end) {
+
+            for (var i = start; i <= end; i++) {
+  // write times timestable
+                document.write(numberToUse + " * " + i + " = " + numberToUse * i + "<br>");
+            }
+        }
+  // create an exit variable
+        var exitloop = 0;
+// start loop
+        for (var i = 1; exitloop != -1; i++) {
+          // call times table
+            timestable(i, 1, 10);
+        //prompt - ask user if the want to exit
+            exitloop = prompt("enter -1 to quit")
+      // check if response is a number
+            if (isNumber(exitloop) == false) {
+                alert("please reenter " + exitloop + " is not a number")
+            };
+        }
+    </script>
+</body>
+
+</html>
