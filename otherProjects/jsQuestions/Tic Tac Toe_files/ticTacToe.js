@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    var circleOrEx = "o"; // initalizes variable to start at as an O
+    var circleOrEx = "o"; // initalizes variable to start at as a O
     var lettercolour = "red"
     var isGameInProgress = true; // Intializes variable to true.
     var winningCombos = { // depending on where you click the certain values on the grid have to be selected
