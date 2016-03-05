@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Bootstrap 3 Responsive Template</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <style type="text/css">
+    .bs-example {
+      margin: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div>
+
+      <!-- Nav tabs -->
+      <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active"><a href="#q6" aria-controls="home" role="tab" data-toggle="tab">Range Array</a></li>
+        <li role="presentation"><a href="#q7" aria-controls="profile" role="tab" data-toggle="tab">The sum of a Range</a></li>
+        <li role="presentation"><a href="#q8" aria-controls="messages" role="tab" data-toggle="tab">Reversing an array</a></li>
+        <li role="presentation"><a href="#q9" aria-controls="settings" role="tab" data-toggle="tab">Reverse an array in place</a></li>
+      </ul>
+
+      <!-- Tab panes -->
+      <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="q6">
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id="btn6" class="btn btn-info">Execute Code</button>
+              <pre><div id="code6" class="text-primary"></div></pre>
+
+            </div>
+          </div>
+
+        </div>
+        <div role="tabpanel" class="tab-pane" id="q7">
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id="btn7" class="btn btn-info">Execute Code</button>
+              <pre><div id="code7" ></div> </pre>
+
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="q8">
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id="btn8" class="btn btn-info">Execute Code</button>
+              <pre><div id="code8" ></div> </pre>
+            </div>
+          </div>
+        </div>
+        <div role="tabpanel" class="tab-pane" id="q9">
+          <div class="row">
+            <div class="col-md-12">
+              <button type="button" id="btn9" class="btn btn-info">Execute Code</button>
+              <pre><div id="code9" ></div> </pre>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+  <script>
+    $(document).ready(function() {
+
+      function range(start, end) {
+        var ar1 = [];
+        // its a for loop and i is where it starts i is less then the end variable and the increment is +1
+        for (var i = start; i <= end; i++) {
+          //pushing ar1 into i
+          // push's / adds the number i into the array ar1
+          ar1.push(i);
+        }
+
+//means return result from array
+        return ar1;
+
+      }
+//The folliwng function is called from the button id=btn6
+      function answer6() {
+        // will have the the user type in a starting number
+        // will have the user type in a ending number
+        //var str2=range(s, e) shows all the numbers between the value of s and the value of e
+        var s = prompt("Enter a starting number please");
+        var e = prompt("Please enter an ending number");
+        var str2 = range(s, e)
+
+        // replace code1 html value
+        $("#code6").html(str2.join("<br>"));
+      }
+
+      function sum(ar1) {
+        //starts at 0
+        var ans = 0;
+        // will show the number of characters in the array
+        // create a variable named arraylength equal to the length of the array "ar1"
+        var arrayLength = ar1.length;
+        // var i=0 means it will start at 0, i < arrayLength means when it's less then arrayLength it is true. The last thing is the increment by 1
+        for (var i = 0; i < arrayLength; i++) {
+// adding the number from the array
+          ans = ans + Number(ar1[i]);
+
+        }
+
+
+        return ans;
+
+      }
+//The folliwng function is called from the button id=btn7
+      function answer7() {
+        // will have the the user type in a starting number
+        // will have the user type in a ending number
+        //var str=range(s, e) shows all the numbers between the value of s and the value of e
+        //var str2= sum(range(s, e)) will the show the sum of all the numbers
+         var s = prompt("Enter a starting number please");
+        var e = prompt("Please enter an ending number");
+        var str = range(s, e)
+        var str2 = sum(range(s, e))
+
+        // replace code1 html value
+        $("#code7").html(str.join("+") + " = <B>" + str2);
+
+      }
+      // this function takes an array of letters as an input
+      	// and will reverse the order without using the reverse function
+      	// ar1 is the name of the parameter/ incoming array
+        // it pushes the values of the array in reverse order into ar2
+      function reverseArray(ar1) {
+        var ar2=[];
+        var arrayLength = ar1.length ;
+        for (var i = arrayLength; i > 0; i--) {
+            ar2.push(ar1[i-1]);
+        }
+        return ar2;
+
+      }
+//The folliwing function is called from the button id=btn8
+
+      function answer8() {
+
+        // call the function reverseArray and pass it an array of letters
+        // there are 6 elements in the array =["a", "m", "a", "n", "d", "a"]
+        // reverseArray will return the letters in reverse order
+        	//	becomes ["a","d","n","a","m","a"]
+        var str = reverseArray(["a", "m", "a", "n", "d", "a"])
+
+        // ["a","d","n","a","m","a"] becomes "adnama"
+        	// update the div whos id=code8 to contain "adnama"
+
+        $("#code8").html(str.join(""));
+
+      }
+
+      // this function takes an array of letters as an input
+  	// and will reverse the order without using the reverse function
+  	// ar1 is the name of the parameter/ incoming array
+        function reverseArrayInPlace(ar1) {
+  	// turn the array into a string with commas between the letters =["a", "m", "a", "n", "d", "a"], becomes "a,m,a,n,d,a"
+           var str=ar1.join(",")
+  	// create a variable to hold the letters in reverse order
+          var str2=""
+  	// for i = length of array (6) to 1 going backwards by 1 (i=i-1)
+          for (i=str.length;i>0;i--) {
+  	// add each letter (starting at the last letter) to the variable str2 (one at a time)
+            str2=str2 + str.charAt(i-1)
+          }
+
+  	// the split function turns the reversed string into an array of values, between the commas
+  	// "a,d,n,a,m,a" becomes ["a","d","n","m","a"]
+          return str2.split(",");
+
+      }
+//The following function is called from the button id=btn9
+      function answer9() {
+
+        // call the function reverseArrayInPlace and pass it an array of letters
+	// there are 6 elements in the array =["a", "m", "a", "n", "d", "a"]
+ 	// reverseArrayInPlace will return the letters in reverse order
+	//	becomes ["a","d","n","a","m","a"]
+
+        var str2 = reverseArrayInPlace(["a", "m", "a", "n", "d", "a"])
+
+        // use the join function to turn the array into a string
+	// ["a","d","n","a","m","a"] becomes "adnama"
+	// update the div whos id=code9 to contain "adnama"
+
+        $("#code9").html(str2.join(""));
+
+      }
+
+      // add buttons to each tabpanel - answer1 through answer5
+      $("#btn6").on("click", function() {
+        answer6()
+      })
+      $("#btn7").on("click", function() {
+        answer7()
+      })
+      $("#btn8").on("click", function() {
+        answer8()
+      })
+      $("#btn9").on("click", function() {
+        answer9()
+      })
+
+    });
+  </script>
+</body>
+
+</html>

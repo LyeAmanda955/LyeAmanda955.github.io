@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 3 Responsive Template</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        .bs-example {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div>
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+                <li role="presentation" class="active"><a href="#q1" aria-controls="home" role="tab" data-toggle="tab">looping a triangle</a></li>
+                <li role="presentation"><a href="#q2" aria-controls="profile" role="tab" data-toggle="tab">FooBar</a></li>
+                <li role="presentation"><a href="#q3" aria-controls="messages" role="tab" data-toggle="tab">Chess Grid</a></li>
+                <li role="presentation"><a href="#q4" aria-controls="settings" role="tab" data-toggle="tab">Bean counting</a></li>
+                <li role="presentation"><a href="#q5" aria-controls="settings" role="tab" data-toggle="tab">Bean counting II</a></li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="q1">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btn1" class="btn btn-info">Execute Code</button>
+                            <pre><div id="code1" class="text-primary"></div></pre>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div role="tabpanel" class="tab-pane" id="q2">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btn2" class="btn btn-info">Execute Code</button>
+                            <pre><div id="code2" ></div> </pre>
+
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="q3">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btn3" class="btn btn-info">Execute Code</button>
+                            <pre><div id="code3" ></div> </pre>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="q4">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btn4" class="btn btn-info">Execute Code</button>
+                            <pre><div id="code4" ></div> </pre>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="q5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button type="button" id="btn5" class="btn btn-info">Execute Code</button>
+                            <pre><div id="code5" ></div> </pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+
+
+            // varaible to hold the html, placed outside allows it to keep growing, make bold
+            var str2 = "<b>";
+
+            function answer1() {
+                // variable to hold string we are creating
+                var str = "";
+
+                for (var i = 0; i <= 5; i++) {
+                    // add character
+                    str = str + "#"
+                        // add to html
+                    str2 = str2 + str + "<br>";
+
+                }
+                // replace code1 html value
+                $("#code1").html(str2);
+            }
+
+            function answer2() {
+                // variable for html, initialize as bold
+                var str = "<b>";
+
+                for (var i = 1; i <= 100; i++) {
+                    // if i is divisiable by 3 but I is not divisible by 5
+                    if (i % 3 == 0 && i % 5 != 0) {
+                        str = str + "Foo<br>";
+                        // if i not is divisiable by 3 but I is  divisible by 5
+                    } else if (i % 3 != 0 && i % 5 == 0) {
+                        str = str + "Bar<br>";
+
+                        // if i is divisiable by 3 and I is   divisible by 5
+                    } else if (i % 3 == 0 && i % 5 == 0) {
+                        str = str + "FooBar<br>";
+
+                        // if i is not  divisiable by 3 and I is not divisible by 5
+                    } else {
+
+                        str = str + i + "<br>";
+                    }
+
+                }
+                //alert(str)
+                $("#code2").html(str);
+            }
+
+            function answer3() {
+                // prompt use for a number
+                var slength = prompt("What is the side length of the square?");
+                // build a line
+                var s1 = "<b>";
+
+                for (var i = 1; i <= slength; i++) {
+                    s1 = s1 + "#&nbsp;"
+
+                }
+                var s2 = "<br>";
+
+                for (var i = 1; i <= slength; i++) {
+                    // add line to html
+                    s2 = s2 + s1 + "<br>";
+                }
+
+
+                $("#code3").html(s2);
+            }
+
+
+
+            function countBs(phraseB) {
+                // var for count of Bs
+                var numxB = 0;
+
+                for (var i = 0; i <= phraseB.length; i++) {
+                    if (phraseB.charAt(i) == "B") {
+                        numxB++
+                    }
+                }
+                // format for html
+                $("#code4").html(phraseB + "<br><b>The amount of Capital B's in the text is " + numxB);
+
+            }
+
+            function answer4() {
+                var phraseB = prompt("Please enter a phrase");
+                countBs(phraseB)
+            }
+
+
+
+
+            function countChar(phraseLet, letterx) {
+                var numX = 0;
+
+                for (var i = 0; i <= phraseLet.length; i++) {
+                    if (phraseLet.charAt(i) == letterx) {
+                        numX++
+                    }
+                }
+
+                // format for html, colour code user response and add sentence
+                $("#code5").html("<p class='text-primary'>" + phraseLet + "</p><br>The amount of <b>" + letterx +
+                    "'s</b> in the text is " +
+                    numX);
+
+            }
+
+            function answer5() {
+                var phraseLet = prompt("Please enter a phrase");
+                var letterx = prompt("Please enter a letter");
+                countChar(phraseLet, letterx)
+            }
+
+
+
+            // add buttons to each tabpanel - answer1 through answer5
+            $("#btn1").on("click", function() {
+                answer1()
+            })
+            $("#btn2").on("click", function() {
+                answer2()
+            })
+            $("#btn3").on("click", function() {
+                answer3()
+            })
+            $("#btn4").on("click", function() {
+                answer4()
+            })
+            $("#btn5").on("click", function() {
+                answer5()
+            })
+        });
+    </script>
+</body>
+
+</html>
