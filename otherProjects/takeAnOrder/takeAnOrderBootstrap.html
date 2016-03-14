@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Take An Order Boostrap</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/takeAnOrder.js"></script>
+  <style>
+    h2 {
+      /* formatted heading   */
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* set wrapper for page   */
+
+    #wrapper {
+      width: 940px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    /* indented radio buttons in bootstrap   */
+
+    .inline {
+      margin-left: 50px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- You have to have a container in boostrap so added a container -->
+  <div class="container" id="wrapper">
+    <!-- added a heading  -->
+    <h2> Justin Bieber cool stuff - order Page</h2>
+    <!-- adds input group around the text input code  -->
+    <div class="input-group">
+
+      <input id="mySingleLineText" type="text" class="form-control" placeholder="Enter Your Name" aria-describedby="basic-addon1">
+    </div>
+
+    <br>
+    <!-- added input group around the text area code -->
+    <div class="input-group">
+      <textarea id="myTextarea" class="form-control" rows="6" cols="50">Tell me why You LOVE Justin</textarea>
+    </div>
+
+    <br>
+    <!-- added form group around the label and the dropdown and changed the text for the options in the dropdown -->
+    <div class="form-group">
+      <label for="sel1"> Have you ever seen Justin live?</label>
+      <select class="form-control" id="mySelect">
+        <option value="value1">Yes a few times </option>
+        <option value="value2" selected>No but i really want too</option>
+        <option value="value3">Other</option>
+      </select>
+    </div>
+
+    <!-- It's a place to put a message on the screen -->
+    <div id="mySelectMessage"></div>
+    <br> How long have you been supporting him?
+    <!-- boostrap radio class and added rButton classes and each have different text-->
+    <div class="radio inline control-label">
+      <input type="radio" name="support" value="youtube" checked class="rButton"> Since his youtube days
+    </div>
+    <div class="radio inline control-label">
+      <input type="radio" name="support" value="couple" class="rButton"> A couple of years
+    </div>
+    <div class="radio inline control-label" id="myMore">
+      <input type="radio" name="support" value="more" class="rButton"> More..
+    </div>
+
+    <br> Do you have a favorite album of his?
+    <br>
+    <!-- Added a label around each of the rChecked classes and each have different text-->
+    <label class="checkbox-inline">
+      <input type="checkbox" name="Album" value="MyWorld" checked class="rChecked">My World
+    </label>
+    <label class="checkbox-inline">
+      <input type="checkbox" name="Album" value="Believe" class="rChecked">Believe
+    </label>
+    <label class="checkbox-inline ">
+      <input type="checkbox" name="Album" value="Journals" class="rChecked">Journals
+    </label>
+    <br>
+    <br>
+    <!-- added a button that says send now -->
+    <button id="myButton" type="button" class="btn btn-primary">Send Now!</button>
+    <br>
+    <br>
+    <div id="log">LOG</div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Take An Order Regular</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <script src="js/takeAnOrder.js"></script>
+  <style>
+    h2 {
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+    }
+    /* wrapper for document
+  */
+
+    #wrapper {
+      width: 940px;
+      margin: 10px auto;
+      padding: 10px;
+    }
+    /* indent for radio buttons
+    */
+
+    .inline {
+      margin-left: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Added a wrapper  -->
+  <!-- Added a heading  -->
+
+  <div id="wrapper">
+    <h2> Justin Bieber cool stuff - order Page</h2>
+    <!-- added the code for text input   -->
+    <input id="mySingleLineText" type="text" value="Enter Your Name">
+    <br>
+    <br>
+    <!-- added the code for TEXTAREA  -->
+    <textarea id="myTextarea" rows="10" cols="50">Tell me why You LOVE Justin</textarea>
+    <br>
+    <br> Have you ever seen Justin live?
+    <!-- added the code for the dropdown and changed the text for the options in the dropdown -->
+    <select id="mySelect">
+      <option value="value1">Yes a few times </option>
+      <option value="value2" selected>No but i really want too</option>
+      <option value="value3">Other</option>
+    </select>
+    <br>
+    <!-- It's a place to put a message on the screen -->
+    <div id="mySelectMessage"></div>
+    <br> How long have you been supporting him?
+    <br>
+    <!-- Added rButton classes and each have different text-->
+    <input type="radio" name="support" value="youtube" checked class="rButton inline "> Since his youtube days
+    <br>
+    <input type="radio" name="support" value="couple" class="rButton inline "> A couple of years
+    <br>
+    <input type="radio" name="support" value="more" class="rButton inline " id="myMore">More..
+    <br>
+    <br> Do you have a favorite album of his?
+    <!-- Added rChecked classes and each have different text-->
+    <br>
+    <input type="checkbox" name="Album" value="Yes" checked class="rChecked">Yes obviously
+    <br>
+    <input type="checkbox" name="Album" value="No" class="rChecked">No i love them all.
+    <br>
+    <br>
+    <!-- Added a button that says send now -->
+    <button id="myButton" type="button">Send Now!</button>
+    <br>
+    <br>
+    <div id="log">LOG</div>
+  </div>
+</body>
+
+</html>
