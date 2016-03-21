@@ -7,6 +7,7 @@ var container = $(".container");
 if (container) {
 container.prepend(data)
 //container.fadeIn();
+alert(1)
 }
 });
 });
