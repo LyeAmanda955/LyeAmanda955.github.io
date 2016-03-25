@@ -1,9 +1,10 @@
 body {
   font-family: Segoe UI;
-  background-color: red;
+  background-color: pink;
 }
 .container {
   display: none;
+  background-color: yellow;
 }
 
 
