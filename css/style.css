@@ -1,5 +1,6 @@
 body {
   font-family: Segoe UI;
+  background-color: red;
 }
 .container {
   display: none;
