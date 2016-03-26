@@ -1,5 +1,5 @@
 $(document).ready(function() {
-alert(1)
+alert(1);
     $("#getClients").on("click", function() {
 
         var url = "http://LyeAmanda955.github.io/otherProjects/ajaxExamples/jsonDatabase/clients.json";
