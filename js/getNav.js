@@ -10,7 +10,8 @@ $.get("http://LyeAmanda955.github.io/Partials/nav.html", function(data) {
     if (container) {
       container.prepend(data)
       container.fadeIn();
-      $('#myfooter').prepend('.container');
+    /*  $('#myfooter').prepend('.container');
+    */
     }
 
   });
