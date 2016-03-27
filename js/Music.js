@@ -6,7 +6,7 @@ $(document).ready(function() {
 
         $.getJSON(url, function(data) {
             var html = "<table class='table table-hover table-striped'>" +
-              "<tr><th>Name</th><th>Email</th><th>Company</th></tr>";
+              "<tr><th>artist</th><th>song</th><th>genre</th><th>gender</th><th>comment</th><th>rating</th><th>address</th><th>email</th></tr>";
 
             $.each(data, function(index, item) {
 
