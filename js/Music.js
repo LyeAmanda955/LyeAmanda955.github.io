@@ -14,6 +14,11 @@ $(document).ready(function() {
                 "<td>" + item.artist + "</td>" +
                 "<td>" + item.song + "</td>" +
                 "<td>" + item.genre + "</td>" +
+                "<td>" + item.gender + "</td>" +
+                "<td>" + item.comment + "</td>" +
+                "<td>" + item.rating + "</td>" +
+                "<td>" + item.address + "</td>" +
+                "<td>" + item.email + "</td>" +
                 "</tr>";
             })
 
