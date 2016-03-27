@@ -1,0 +1,61 @@
+[{
+    "Id": "1",
+    "artist": "Justin Bieber",
+    "song": "One time",
+    "genre": "pop ",
+    "gender": "male",
+    "home town": "stratford ON",
+    "comment": "great song!",
+    "rating": "5",
+    "address": "299 Roo avenue Stratford ON",
+    "email": "jbieber@gmail.com",
+    "phone number": "991-992-998"
+}, {
+    "Id": "2",
+    "artist": "Ariana Grande",
+    "song": "problem",
+    "genre": "pop",
+    "gender": "female",
+    "home town": "Texas ",
+    "comment": "eh its alright",
+    "rating": "3",
+    "address": "100 tex mex road route 103 houston texas",
+    "email": "ariana.grandebiz@gmail.com",
+    "phone number": "678-987-1234"
+}, {
+    "Id": "3",
+    "artist": "Zayn Malik",
+    "song": "pillowtalk",
+    "genre": "pop",
+    "gender": "male",
+    "home town": "Bradford UK",
+    "comment": "This song is pretty great",
+    "rating": "4",
+    "address": "99 muscle street ",
+    "email": "ZaynMalik123@gmail.com",
+    "phone number": "371-988-1045"
+}, {
+    "Id": "4",
+    "artist": "Jason Aldean",
+    "song": "tattos on this town",
+    "genre": "country",
+    "gender": "male",
+    "home town": "Tenessee",
+    "comment": "not a bad song at all",
+    "rating": "3",
+    "address": "1099 road avenue route 23 Tenesse ",
+    "email": "AldeanJason@gmail.com",
+    "phone number": "608-123-9678"
+}, {
+    "Id": "5",
+    "artist": "kid rock",
+    "song": "roll on",
+    "genre": "country ",
+    "gender": "male",
+    "home town": "California ",
+    "comment": "mesmorizing ",
+    "rating": "4",
+    "address": "1233 Adams Blvd California ",
+    "email": "KidRocker@gmail.com",
+    "phone number": "795-900-1317"
+}]
