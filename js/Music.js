@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-    $("#getMusic").on("click", function() {
+  //  $("#getMusic").on("click", function() {
 
         var url = "http://LyeAmanda955.github.io/otherProjects/ajaxExamples/jsonDatabase/Music.json";
 
@@ -29,7 +29,7 @@ $(document).ready(function() {
 
           }) //getJSON
 
-      }) //click
+    //  }) //click
 
   }) //ready
 
