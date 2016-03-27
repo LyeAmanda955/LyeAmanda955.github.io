@@ -1,6 +1,7 @@
 [{
     "Id": "1",
     "artist": "Justin Bieber",
+    "album": "onetime.jpg",
     "song": "One time",
     "genre": "pop ",
     "gender": "male",
@@ -13,6 +14,7 @@
 }, {
     "Id": "2",
     "artist": "Ariana Grande",
+    "album": "problem.jpg",
     "song": "problem",
     "genre": "pop",
     "gender": "female",
@@ -25,6 +27,7 @@
 }, {
     "Id": "3",
     "artist": "Zayn Malik",
+    "album": "pillowtalk.jpg",
     "song": "pillowtalk",
     "genre": "pop",
     "gender": "male",
@@ -37,6 +40,7 @@
 }, {
     "Id": "4",
     "artist": "Jason Aldean",
+    "album": "tattoosx.jpg",
     "song": "tattoos on this town",
     "genre": "country",
     "gender": "male",
@@ -49,6 +53,7 @@
 }, {
     "Id": "5",
     "artist": "kid rock",
+    "album": "rollon.jpg",
     "song": "roll on",
     "genre": "country ",
     "gender": "male",

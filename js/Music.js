@@ -14,7 +14,7 @@ $(document).ready(function() {
                 "<td>" + item.artist + "</td>" +
                 "<td>" + item.song + "</td>" +
                 "<td>" + item.genre + "</td>" +
-                "<td>" + item.gender + "</td>" +
+                '<td><img class="MusicImage" src="../../images/' + item.album + '"/></td>' +
                 "<td>" + item.comment + "</td>" +
                 "<td>" + item.rating + "</td>" +
                 "<td>" + item.address + "</td>" +
