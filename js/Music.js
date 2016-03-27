@@ -1,33 +1,33 @@
 $(document).ready(function() {
 
-  //  $("#getMusic").on("click", function() {
+    //  $("#getMusic").on("click", function() {
 
-        var url = "http://LyeAmanda955.github.io/otherProjects/ajaxExamples/jsonDatabase/Music.json";
+    var url = "http://LyeAmanda955.github.io/otherProjects/ajaxExamples/jsonDatabase/Music.json";
 
-        $.getJSON(url, function(data) {
-            var html = "<table class='table table-hover table-striped'>" +
-              "<tr><th>artist</th><th>song</th><th>genre</th><th>album cover</th><th>comment</th><th>rating</th><th>address</th><th>email</th></tr>";
+    $.getJSON(url, function(data) {
+        var html = "<table class='table table-hover table-striped'>" +
+          "<tr><th>artist</th><th>song</th><th>genre</th><th>album cover</th><th>comment</th><th>rating</th><th>address</th><th>email</th></tr>";
 
-            $.each(data, function(index, item) {
+        $.each(data, function(index, item) {
 
-              html += "<tr>" +
-                "<td>" + item.artist + "</td>" +
-                "<td>" + item.song + "</td>" +
-                "<td>" + item.genre + "</td>" +
-                '<td><img class="MusicImage" src="../../images/' + item.album + '"/></td>' +
-                "<td>" + item.comment + "</td>" +
-                "<td>" + item.rating + "</td>" +
-                "<td>" + item.address + "</td>" +
-                "<td>" + item.email + "</td>" +
-                "</tr>";
-            })
+          html += "<tr>" +
+            "<td>" + item.artist + "</td>" +
+            "<td>" + item.song + "</td>" +
+            "<td>" + item.genre + "</td>" +
+            '<td><img class="MusicImage" src="../../images/' + item.album + '"/></td>' +
+            "<td>" + item.comment + "</td>" +
+            "<td>" + item.rating + "</td>" +
+            "<td>" + item.address + "</td>" +
+            "<td>" + item.email + "</td>" +
+            "</tr>";
+        })
 
-            html += "</table>";
-            $("#data").append(html);
-            //alert(data);
-            //console.dir(data);
+        html += "</table>";
+        $("#data").append(html);
+        //alert(data);
+        //console.dir(data);
 
-          }) //getJSON
+      }) //getJSON
 
     //  }) //click
 
