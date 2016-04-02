@@ -37,13 +37,13 @@ $(document).ready(function() {
                     html += "<tr>" +
                       "<td>" + item.artist + "</td>" +
                       "<td>" + item.song + "</td>" +
-                      "<td>" + item.genre + "</td>" +
+                      "<td class='cen'>" + item.genre + "</td>" +
                       '<td><img class="MusicImage" src="../../images/' + item.album + '"/></td>' +
                       "<td><audio controls='controls' src='musicfiles/"+ item.song +".m4a'></audio></td>" +
 
 
 
-                      "<td>" + item.rating + "</td>" +
+                      "<td class='cen'>" + item.rating + "</td>" +
                       "<td>" + item.address + "</td>" +
                       "<td>" + item.email + "</td>" +
                       "</tr>";
