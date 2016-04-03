@@ -41,10 +41,8 @@ $(document).ready(function() {
                       '<td><img class="MusicImage" src="../../images/' + item.album + '"/></td>' +
                       "<td><audio controls='controls' src='musicfiles/"+ item.song +".m4a'></audio></td>" +
 
-
-
                       "<td class='cen'>" + item.rating + "</td>" +
-                      "<td>" + item.address + "</td>" +
+                      "<td><label class=‘checkbox-inline’><input type=‘checkbox’ name=‘Album’ value=‘MyWorld’ checked class=‘rChecked’>My World</label></td>" +
                       "<td>" + item.email + "</td>" +
                       "</tr>";
                   })
