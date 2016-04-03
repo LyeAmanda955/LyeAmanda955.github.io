@@ -1,5 +1,6 @@
 $(document).ready(function() {
-
+  var listofsongs=""
+  var listofalbums=""
     //get all the nav li, add click event
     $(".nav").find("li").on("click", function() {
 
@@ -30,7 +31,7 @@ $(document).ready(function() {
 
               $.getJSON(url, function(data) {
                   var html = "<div class='container'><table class='table table-hover table-striped table-bordered'>" +
-                    "<tr><th>Artist</th><th>Song</th><th>Genre</th><th>Album Cover</th><th>Comment</th><th>Rating</th><th>Address</th><th>Email</th></tr>";
+                    "<tr><th>Artist</th><th>Song</th><th>Genre</th><th>Album Cover</th><th>Comment</th><th>Rating</th><th>Buy Song</th><th>Buy Album</th></tr>";
 
                   $.each(data, function(index, item) {
 
@@ -42,13 +43,20 @@ $(document).ready(function() {
                       "<td><audio controls='controls' src='musicfiles/"+ item.song +".m4a'></audio></td>" +
 
                       "<td class='cen'>" + item.rating + "</td>" +
-                      "<td><label class=‘checkbox-inline’><input type=‘checkbox’ name=‘Album’ value=‘MyWorld’ checked class=‘rChecked’>My World</label></td>" +
-                      "<td>" + item.email + "</td>" +
+                        "<td><label class=checkbox-inline><input type=checkbox name=song value=" + item.song +"  class=rChecked>" + item.song +"</label></td>" +
+                        "<td><label class=checkbox-inline><input type=checkbox name=album value=" + item.song +"  class=rChecked>" + item.song +"</label></td>" +
+
                       "</tr>";
                   })
 
                   html += "</table></div>";
                   $("#data").append(html);
+                  $(".rChecked").on("change", function() {
+                    var val = $(this).val();
+                  //  $("#log").append("<br>checked " + val);
+                      getchecked();
+
+                  });
                   //alert(data);
                   //console.dir(data);
 
@@ -62,12 +70,28 @@ $(document).ready(function() {
           } else if (partial == "orderPage") { //ajax get home.html
 
               $.get("partials/orderpage.html", function(data) {
+                              alert(data)
                 $("#pageContent").html(data);
+                alert(listofsongs)
+                alert(data)
+                $("#data").append("<p>" + listofsongs+"</p>");
               })
             }
         $("#pageContent").fadeIn();
       }
+      function getchecked(){
+        listofsongs=""
+        listofalbums=""
+        $("[name='song']:checked").each(function() {
+            listofsongs=listofsongs  + $(this).val() +";";
+        });
+        $("[name='album']:checked").each(function() {
+            listofalbums=listofalbums  + $(this).val() +";";
+        });
+    //   alert(listofsongs)
+    //  alert(listofalbums)
 
+      }
   getPartial("homePage");
 
 
