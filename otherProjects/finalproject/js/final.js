@@ -29,7 +29,7 @@ $(document).ready(function() {
               var url = "jsonDatabase/Music.json";
 
               $.getJSON(url, function(data) {
-                  var html = "<table class='table table-hover table-striped table-bordered'>" +
+                  var html = "<div class='container'><table class='table table-hover table-striped table-bordered'>" +
                     "<tr><th>Artist</th><th>Song</th><th>Genre</th><th>Album Cover</th><th>Comment</th><th>Rating</th><th>Address</th><th>Email</th></tr>";
 
                   $.each(data, function(index, item) {
@@ -47,7 +47,7 @@ $(document).ready(function() {
                       "</tr>";
                   })
 
-                  html += "</table>";
+                  html += "</table></div>";
                   $("#data").append(html);
                   //alert(data);
                   //console.dir(data);
