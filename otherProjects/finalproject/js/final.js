@@ -70,11 +70,17 @@ $(document).ready(function() {
           } else if (partial == "orderPage") { //ajax get home.html
 
               $.get("partials/orderpage.html", function(data) {
-                              alert(data)
+
                 $("#pageContent").html(data);
-                alert(listofsongs)
-                alert(data)
-                $("#data").append("<p>" + listofsongs+"</p>");
+                var songs = listofsongs.split(";");
+                var html="";
+
+
+          for (var i = 0; i < songs.length-1; i++) {
+
+                 html=html+  "<td><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +"</label></td>"
+}
+                $("#data").append(html);
               })
             }
         $("#pageContent").fadeIn();
