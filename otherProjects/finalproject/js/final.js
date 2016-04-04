@@ -73,17 +73,52 @@ $(document).ready(function() {
 
                 $("#pageContent").html(data);
                 var songs = listofsongs.split(";");
-                var html="";
+                var html = "<table class='table table-hover table-striped table-bordered'>" +
+                "<tr><th class='purch'>Song Purchases</th></tr>"
 
 
           for (var i = 0; i < songs.length-1; i++) {
 
-                 html=html+  "<td><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +"</label></td>"
-}
-                $("#data").append(html);
+                 html=html+  "<tr ><td width='300px'><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +"</label></td></tr>"
+               }
+
+               var html = html+ "</table><br><br><table class='table table-hover table-striped table-bordered'>" +
+               "<tr><th class='purch'>Album Purchases</th></tr>"
+
+               var albums = listofalbums.split(";");
+         for (var i = 0; i < albums.length-1; i++) {
+
+                html=html+  "<tr ><td width='300px'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] +" checked class=rChecked>" + albums[i] +"</label></td></tr>"
+              }
+                $("#data").append(html+"</table>");
+
+                $("#ordername").on("focus", function() {
+                    $("#log").append("<br>input focus");
+                    $(this).css("background-color", "#F7F8E0");
+                  })
+                  .on("blur", function() {
+                    $("#log").append("<br>input blur");
+                    $(this).css("background-color", "#FFF");
+                  });
+                  //user clicks the button
+                  $("#myButton").on("click", function() {
+
+                    $("#log").append("<br>User clicked the button");
+
+                    var userOrder = {};
+
+
+                  });
               })
+
             }
+
         $("#pageContent").fadeIn();
+        //change the backgrund color on focus, blue
+
+
+
+
       }
       function getchecked(){
         listofsongs=""

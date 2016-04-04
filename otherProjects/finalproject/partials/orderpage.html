@@ -10,7 +10,7 @@
 
     </div>
 
-    <div id="data" class="col-md-12">
+    <div id="data1" class="col-md-12">
       <div class="input-group">
         <input id="ordername" type="text" class="form-control" placeholder="Enter Your Name" aria-describedby="basic-addon1">
       </div>
@@ -25,17 +25,26 @@
       </div>
 
       <br> How many song/album's would you like?
-      ?
+
       <!-- boostrap radio class and added rButton classes and each have different text-->
       <div class="radio inline control-label">
-        <input type="radio" name="support" value="youtube" checked class="rButton"> 1
+        <input type="radio" name="qty" value="1" checked class="rButton"> 1
       </div>
       <div class="radio inline control-label">
-        <input type="radio" name="support" value="couple" class="rButton">2
+        <input type="radio" name="qty" value="2" class="rButton">2
       </div>
-      <div class="radio inline control-label" id="myMore">
-        <input type="radio" name="support" value="more" class="rButton"> 3
+      <div class="radio inline control-label" >
+        <input type="radio" name="qty" value="3" class="rButton"> 3
       </div>
+      <div id="data"></div>
+      <br>
+      Press the button to Submit&nbsp;<span class="glyphicon glyphicon-hand-right "> </span>
+      <span class="glyphicon glyphicon-hand-right "> </span>
+
+      <button id="myButton" type="button" class="btn btn-primary ">Submit</button>
+      <br>
+      <br>
+      <div id="log">LOG</div>
     </div>
 
 
