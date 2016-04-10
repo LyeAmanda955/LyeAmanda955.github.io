@@ -33,7 +33,7 @@
       </div>
 
 
-      <br> How many song/album's would you like?
+      <br> How many song/album's of each would you like?
 
       <!-- boostrap radio class and added rButton classes and each have different text-->
       <div class="radio inline control-label">
@@ -53,7 +53,16 @@
     </label>
     <input type="text" id="name" class="form-control">
   </div>
-
+  <div class="col-xs-12  col-md-6">
+    <label class="control-label">
+      Card Type
+    </label>
+    <select id="CardType" name="CardType" class="form-control">
+      <option value="Visa">Visa</option>
+      <option value="Master">Mastercard</option>
+      <option value="Amex">American Express</option>
+    </select>
+  </div>
   <div class="col-xs-12 col-md-8">
     <label class="control-label">
       Card Number
@@ -87,16 +96,8 @@
       <option value="12">December</option>
     </select>
   </div>
-  <div class="col-xs-12  col-md-6">
-    <label class="control-label">
-      Prices
-    </label>
-    <select id="price" name="price" class="form-control">
-      <option value="01">Single- 1.29</option>
-      <option value="02">Album-13.50</option>
 
-    </select>
-  </div>
+
   <div class="col-xs-12 col-md-6">
     <label class="control-label">
       Card Expiry Year
@@ -131,12 +132,14 @@
     </label>
     <input type="text" class="form-control" id="country">
   </div>
-      Press the button to Submit&nbsp;<span class="glyphicon glyphicon-hand-right "> </span>
-      <span class="glyphicon glyphicon-hand-right "> </span>
+  <div class="col-md-12">
+    Press the button to Submit&nbsp;<span class="glyphicon glyphicon-hand-right "> </span>
+    <span class="glyphicon glyphicon-hand-right "> </span>
 
-      <button id="myButton" type="button" class="btn btn-primary ">Submit</button>
-      <br>
-      <br>
+    <button id="myButton" type="button" class="btn btn-primary ">Submit</button>
+
+  </div>
+
       <div id="log">LOG</div>
     </div>
 

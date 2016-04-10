@@ -79,7 +79,7 @@ $(document).ready(function() {
 
           for (var i = 0; i < songs.length-1; i++) {
 
-                 html=html+  "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +"</label></div>"
+                 html=html+  "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +" @ $1.29 </label></div>"
                }
 
                var html = html+ "<br><br><div class='input-group'><span class='purch'>Album Purchases</span></div>"
@@ -87,7 +87,7 @@ $(document).ready(function() {
                var albums = listofalbums.split(";");
          for (var i = 0; i < albums.length-1; i++) {
 
-                html=html+  "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] +" checked class=rChecked>" + albums[i] +"</label></div>"
+                html=html+  "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] +" checked class=rChecked>" + albums[i] +" @ $13.99 </label></div>"
               }
                 $("#data").append(html+"<br>");
 
