@@ -72,25 +72,24 @@ $(document).ready(function() {
               $.get("partials/orderpage.html", function(data) {
 
                 $("#pageContent").html(data);
+                 $('#DeliveryDate').datepicker({});
                 var songs = listofsongs.split(";");
-                var html = "<table class='table table-hover table-striped table-bordered'>" +
-                "<tr><th class='purch'>Song Purchases</th></tr>"
+                var html = "<div class='input-group'><span class='purch'>Song Purchases</span></div>"
 
 
           for (var i = 0; i < songs.length-1; i++) {
 
-                 html=html+  "<tr ><td width='300px'><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +"</label></td></tr>"
+                 html=html+  "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] +" checked class=rChecked>" + songs[i] +"</label></div>"
                }
 
-               var html = html+ "</table><br><br><table class='table table-hover table-striped table-bordered'>" +
-               "<tr><th class='purch'>Album Purchases</th></tr>"
+               var html = html+ "<br><br><div class='input-group'><span class='purch'>Album Purchases</span></div>"
 
                var albums = listofalbums.split(";");
          for (var i = 0; i < albums.length-1; i++) {
 
-                html=html+  "<tr ><td width='300px'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] +" checked class=rChecked>" + albums[i] +"</label></td></tr>"
+                html=html+  "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] +" checked class=rChecked>" + albums[i] +"</label></div>"
               }
-                $("#data").append(html+"</table>");
+                $("#data").append(html+"<br>");
 
                 $("#ordername").on("focus", function() {
                     $("#log").append("<br>input focus");
@@ -102,13 +101,27 @@ $(document).ready(function() {
                   });
                   //user clicks the button
                   $("#myButton").on("click", function() {
+    $("#log").append("<br>User clicked the button");
+    var userOrder = {};
+                              //get all empty inputs and select
+                              //add error class to div container
+                              $("input, select").filter(function() {
+                                  return !this.value;
+                              }).closest("div").addClass("has-error");
 
-                    $("#log").append("<br>User clicked the button");
+                              //remove error class for non empty ones
+                              $("input, select").filter(function() {
+                                  return this.value; //removed !
+                              }).closest("div").removeClass("has-error");
 
-                    var userOrder = {};
+                              var errors = $(".has-error");
 
+                              if (errors.length < 1) {
+                                  //alert("no errors");
+                                  sendConfirmation();
+                              }
 
-                  });
+                          }) //click
               })
 
             }
