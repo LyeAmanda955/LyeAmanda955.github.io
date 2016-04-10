@@ -20,7 +20,11 @@ body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
 }
+
 #data1{width:500px;}
+
+.radio-indent{padding-left:30px;}
+
 .input-group {width:300px;}
 .footer {
   position: absolute;

@@ -1,14 +1,7 @@
-<div class="row">
 
-  <div class="col-md-12">
-
-    <!--  <button id="getMusic" class="btn btn-default btn-lg" type="button">Get Music</button> -->
-    <br>
-    <br>
-
-  </div>
 
   <div id="data1" class="col-md-12">
+      <div class="row">
     <div class="col-xs-12 col-md-12">
       <label class="control-label">
         Name
@@ -40,22 +33,28 @@
       <input type="text" id="DeliveryDate" name="name" class="form-control" placeholder="Enter Deliver Date">
     </div>
 
-
-
-
-
-    <br> How many song/album's of each would you like?
-
-    <!-- boostrap radio class and added rButton classes and each have different text-->
-    <div class="radio inline control-label">
+</div>
+      <br>
+<div class="row" >
+    <div class="col-xs-12 col-md-12">
+      <label class="control-label">
+        How many song/album's of each would you like?
+      </label>
+      <div class="radio inline control-label radio-indent">
       <input type="radio" name="qty" value="1" checked class="rButton"> 1
     </div>
-    <div class="radio inline control-label">
+    <div class="radio inline control-label radio-indent">
       <input type="radio" name="qty" value="2" class="rButton">2
     </div>
-    <div class="radio inline control-label">
+    <div class="radio inline control-label radio-indent">
       <input type="radio" name="qty" value="3" class="rButton"> 3
     </div>
+
+
+    </div>
+</div>
+      <br>
+<div class="row">
     <div class="col-md-12">
       <div id="data"></div>
     </div>
@@ -150,7 +149,15 @@
       Press the button to Submit&nbsp;<span class="glyphicon glyphicon-hand-right "> </span>
       <span class="glyphicon glyphicon-hand-right "> </span>
 
-      <button id="myButton" type="button" class="btn btn-primary ">Submit</button>
+      <button id="SubmitButton" type="button" class="btn btn-primary ">Submit</button>
+
+    </div>
+    <div class="col-md-12">
+      <div id="successMsg"></div>
+
+    </div>
+    <div class="col-md-12">
+      <div id="EditIssues"></div>
 
     </div>
     <div class="col-md-12">
@@ -158,7 +165,7 @@
 
     </div>
 
+
   </div>
 
-
-</div>
+    </div>

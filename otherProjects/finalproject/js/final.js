@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var listofsongs = ""
+    var listofsongs = "onetime;"
     var listofalbums = ""
       //get all the nav li, add click event
     $(".nav").find("li").on("click", function() {
@@ -101,16 +101,21 @@ $(document).ready(function() {
           $("#data").append(html + "<br>");
 
           $("#ordername,#orderaddr,#orderphone,#orderemail,#name,#CardType,#cardNumber,#securityCode,#expirymonth,#expiryYear,#address1,#zip,#state,#country").on("focus", function() {
-              $("#log").append("<br>input focus");
+              $("#log").append("<br>input focus " + this.id + "="+this.value);
               $(this).css("background-color", "#F7F8E0");
             })
             .on("blur", function() {
               $("#log").append("<br>input blur");
               $(this).css("background-color", "#FFF");
             });
+
+
+
+
           //user clicks the button
-          $("#myButton").on("click", function() {
-              $("#log").append("<br>User clicked the button");
+          $("#SubmitButton").on("click", function() {
+              $("#log").html("User Clicked Submit... Log reset");
+
               var userOrder = {};
               //get all empty inputs and select
               //add error class to div container
@@ -126,8 +131,39 @@ $(document).ready(function() {
               var errors = $(".has-error");
 
               if (errors.length < 1) {
-                //alert("no errors");
-                sendConfirmation();
+                var es = ""
+                var input = $('#expiryYear').val();
+                var test = ",2016,2017,2018,2019,2020,2021,".indexOf("," + input + ",")
+
+                if (test == -1) {
+                  es = es + " Expiry Year must be 2016 to 2021<br>"
+                }
+                $("#EditIssues").html(es);
+                $("#EditIssues").css("color", "red");
+
+                var input = $('#country').val();
+
+                input = input.toUpperCase()
+
+                var test = ",CANADA,USA,".indexOf("," + input + ",")
+
+                if (test == -1) {
+                  es = es + " Country Must be Canada or USA<br>"
+                }
+
+                if (listofsongs.length + listofalbums.length == 0) {
+                  es = es + " You must choose at least on song or album<br>"
+                }
+
+                $("#EditIssues").html(es);
+                $("#EditIssues").css("color", "red");
+
+
+
+                if (es.length == 0) {
+                  //  alert("no errors");
+                  sendConfirmation();
+                }
               }
 
             }) //click
@@ -156,6 +192,23 @@ $(document).ready(function() {
       //  alert(listofalbums)
 
     }
+
+    function sendConfirmation() {
+      //make an object to record data for database;
+      var order = {};
+      //get all teh jquery objects
+      var formData = $("input, select");
+      //for each jquery object
+      formData.each(function() {
+        var id = $(this).attr("id"); //get the id of the element
+        order[id] = $(this).val(); //set the field and the value
+      })
+
+      alert("Sending to database " + JSON.stringify(order));
+      $("#successMsg").html("Order Received!<br/><br/>" +
+        listofsongs + listofalbums + " will be delivered on " + order.DeliveryDate);
+      $("#successMsg").css("color", "blue");
+    } //sendConfirmation
     getPartial("homePage");
 
 
