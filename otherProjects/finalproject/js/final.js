@@ -34,7 +34,16 @@ $(document).ready(function() {
                 "<tr><th>Artist</th><th>Song</th><th>Genre</th><th>Album Cover</th><th>Comment</th><th>Rating</th><th>Buy Song</th><th>Buy Album</th></tr>";
 
               $.each(data, function(index, item) {
-
+                var n = listofsongs.indexOf(item.song);
+                var scheck = " "
+                if (n != -1) {
+                  scheck = " checked"
+                };
+                var n = listofalbums.indexOf(item.song);
+                var acheck = " "
+                if (n != -1) {
+                  acheck = " checked"
+                };
                 html += "<tr>" +
                   "<td>" + item.artist + "</td>" +
                   "<td>" + item.song + "</td>" +
@@ -43,8 +52,8 @@ $(document).ready(function() {
                   "<td><audio controls='controls' src='musicfiles/" + item.song + ".m4a'></audio></td>" +
 
                   "<td class='cen'>" + item.rating + "</td>" +
-                  "<td><label class=checkbox-inline><input type=checkbox name=song value=" + item.song + "  class=rChecked>" + item.song + "</label></td>" +
-                  "<td><label class=checkbox-inline><input type=checkbox name=album value=" + item.song + "  class=rChecked>" + item.song + "</label></td>" +
+                  "<td><label class=checkbox-inline><input type=checkbox name=song value=" + item.song + scheck + " class=rChecked>" + item.song + "</label></td>" +
+                  "<td><label class=checkbox-inline><input type=checkbox name=album value=" + item.song + acheck + "  class=rChecked>" + item.song + "</label></td>" +
 
                   "</tr>";
               })
