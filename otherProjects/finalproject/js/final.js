@@ -101,7 +101,7 @@ $(document).ready(function() {
           $("#data").append(html + "<br>");
 
           $("#ordername,#orderaddr,#orderphone,#orderemail,#name,#CardType,#cardNumber,#securityCode,#expirymonth,#expiryYear,#address1,#zip,#state,#country").on("focus", function() {
-              $("#log").append("<br>input focus " + this.id + "="+this.value);
+              $("#log").append("<br>input focus " + this.id + "=" + this.value);
               $(this).css("background-color", "#F7F8E0");
             })
             .on("blur", function() {
