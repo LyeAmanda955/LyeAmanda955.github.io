@@ -86,7 +86,7 @@ $(document).ready(function() {
 
         })
       } else if (partial == "orderPage") { //ajax get orderPage.html
-alert(1)
+
         $.get("partials/orderpage.html", function(data) {
 
           $("#pageContent").html(data);
@@ -108,7 +108,7 @@ alert(1)
             html = html + "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] + " checked class=rChecked>" + albums[i] + " @ $13.99 </label></div>"
           }
           $("#data").append(html + "<br>");
-          alert(2)
+
           // this adds both focus and blur for all the input fields
           $("#ordername,#orderaddr,#orderphone,#orderemail,#name,#CardType,#cardNumber,#securityCode,#expirymonth,#expiryYear,#address1,#zip,#state,#country").on("focus", function() {
               $("#log").append("<br>input focus " + this.id + "=" + this.value);
