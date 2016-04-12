@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  //default onetime (song) as selected
     var listofsongs = "onetime;"
     var listofalbums = ""
       //get all the nav li, add click event
@@ -17,12 +18,12 @@ $(document).ready(function() {
     function getPartial(partial) {
       $("#pageContent").hide();
 
-      if (partial == "homePage") { //ajax get home.html
+      if (partial == "homePage") { //ajax get homePage.html
 
         $.get("partials/homepage.html", function(data) {
           $("#pageContent").html(data);
         })
-      } else if (partial == "musicPage") { //ajax get home.html
+      } else if (partial == "musicPage") { //ajax get musicPage.html
 
         $.get("partials/musiclist.html", function(data) {
           $("#pageContent").html(data);
@@ -30,10 +31,15 @@ $(document).ready(function() {
           var url = "jsonDatabase/Music.json";
 
           $.getJSON(url, function(data) {
+              // add table for product list
               var html = "<div class='container'><table class='table table-hover table-striped table-bordered'>" +
                 "<tr><th>Artist</th><th>Song</th><th>Genre</th><th>Album Cover</th><th>Comment</th><th>Rating</th><th>Buy Song</th><th>Buy Album</th></tr>";
-
+              // for each record in json file
               $.each(data, function(index, item) {
+
+                // check if song or album has already been selected
+                // if they go to order page and come back to music page
+                // checked do not get reset
                 var n = listofsongs.indexOf(item.song);
                 var scheck = " "
                 if (n != -1) {
@@ -44,6 +50,7 @@ $(document).ready(function() {
                 if (n != -1) {
                   acheck = " checked"
                 };
+                // build html for each record
                 html += "<tr>" +
                   "<td>" + item.artist + "</td>" +
                   "<td>" + item.song + "</td>" +
@@ -60,6 +67,8 @@ $(document).ready(function() {
 
               html += "</table></div>";
               $("#data").append(html);
+              // this calls the getchecked function
+              // it builds a simple list of both the songs and albums checked
               $(".rChecked").on("change", function() {
                 var val = $(this).val();
                 //  $("#log").append("<br>checked " + val);
@@ -76,21 +85,21 @@ $(document).ready(function() {
 
 
         })
-      } else if (partial == "orderPage") { //ajax get home.html
+      } else if (partial == "orderPage") { //ajax get orderPage.html
 
         $.get("partials/orderpage.html", function(data) {
 
           $("#pageContent").html(data);
           $('#DeliveryDate').datepicker({});
+          // this conditionally add's check boxes for both songs
           var songs = listofsongs.split(";");
           var html = "<div class='input-group'><span class='purch'>Song Purchases</span></div>"
-
 
           for (var i = 0; i < songs.length - 1; i++) {
 
             html = html + "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + songs[i] + " checked class=rChecked>" + songs[i] + " @ $1.29 </label></div>"
           }
-
+          // this conditionally add's check boxes for both albums
           var html = html + "<br><br><div class='input-group'><span class='purch'>Album Purchases</span></div>"
 
           var albums = listofalbums.split(";");
@@ -99,7 +108,7 @@ $(document).ready(function() {
             html = html + "<div class='input-group'><label class=checkbox-inline><input type=checkbox name=song value=" + albums[i] + " checked class=rChecked>" + albums[i] + " @ $13.99 </label></div>"
           }
           $("#data").append(html + "<br>");
-
+          // this adds both focus and blur for all the input fields
           $("#ordername,#orderaddr,#orderphone,#orderemail,#name,#CardType,#cardNumber,#securityCode,#expirymonth,#expiryYear,#address1,#zip,#state,#country").on("focus", function() {
               $("#log").append("<br>input focus " + this.id + "=" + this.value);
               $(this).css("background-color", "#F7F8E0");
@@ -112,7 +121,7 @@ $(document).ready(function() {
 
 
 
-          //user clicks the button
+          //user clicks the Submit button
           $("#SubmitButton").on("click", function() {
               $("#log").html("User Clicked Submit... Log reset");
 
@@ -131,6 +140,7 @@ $(document).ready(function() {
               var errors = $(".has-error");
 
               if (errors.length < 1) {
+                // this does the edit checking for expiryyear
                 var es = ""
                 var input = $('#expiryYear').val();
                 var test = ",2016,2017,2018,2019,2020,2021,".indexOf("," + input + ",")
@@ -140,7 +150,7 @@ $(document).ready(function() {
                 }
                 $("#EditIssues").html(es);
                 $("#EditIssues").css("color", "red");
-
+                // this does the edit checking for country
                 var input = $('#country').val();
 
                 input = input.toUpperCase()
@@ -150,16 +160,14 @@ $(document).ready(function() {
                 if (test == -1) {
                   es = es + " Country Must be Canada or USA<br>"
                 }
-
+                // ensure user as choosen at least one song or album
                 if (listofsongs.length + listofalbums.length == 0) {
                   es = es + " You must choose at least on song or album<br>"
                 }
 
                 $("#EditIssues").html(es);
                 $("#EditIssues").css("color", "red");
-
-
-
+                // if no es message then good to go
                 if (es.length == 0) {
                   //  alert("no errors");
                   sendConfirmation();
@@ -180,11 +188,13 @@ $(document).ready(function() {
     }
 
     function getchecked() {
+      // find all checked songs
       listofsongs = ""
       listofalbums = ""
       $("[name='song']:checked").each(function() {
         listofsongs = listofsongs + $(this).val() + ";";
       });
+      // find all checked albums
       $("[name='album']:checked").each(function() {
         listofalbums = listofalbums + $(this).val() + ";";
       });
@@ -196,7 +206,7 @@ $(document).ready(function() {
     function sendConfirmation() {
       //make an object to record data for database;
       var order = {};
-      //get all teh jquery objects
+      //get all the jquery objects
       var formData = $("input, select");
       //for each jquery object
       formData.each(function() {
@@ -208,7 +218,8 @@ $(document).ready(function() {
       $("#successMsg").html("Order Received!<br/><br/>" +
         listofsongs + listofalbums + " will be delivered on " + order.DeliveryDate);
       $("#successMsg").css("color", "blue");
-    } //sendConfirmation
+    }
+    //open homepage
     getPartial("homePage");
 
 
