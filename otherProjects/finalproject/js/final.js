@@ -109,7 +109,7 @@ $(document).ready(function() {
           }
           $("#data").append(html + "<br>");
 
-          // this adds both focus and blur for all the input fields
+          // this adds both focus and blur for all the input fields, as well as the id and value of the control
           $("#ordername,#orderaddr,#orderphone,#orderemail,#name,#CardType,#cardNumber,#securityCode,#expirymonth,#expiryYear,#address1,#zip,#state,#country").on("focus", function() {
               $("#log").append("<br>input focus " + this.id + "=" + this.value);
               $(this).css("background-color", "#F7F8E0");
